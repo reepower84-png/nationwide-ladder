@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Image from "next/image";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -34,6 +35,22 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        {/* 카카오톡 플로팅 버튼 */}
+        <a
+          href="http://pf.kakao.com/_xfqPAX/chat"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 z-50 transition-transform hover:scale-110"
+          aria-label="카카오톡 상담"
+        >
+          <Image
+            src="/카톡_원형_로고.png"
+            alt="카카오톡 상담"
+            width={60}
+            height={60}
+            className="rounded-full shadow-lg"
+          />
+        </a>
       </body>
     </html>
   );
