@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { addInquiry } from '@/lib/inquiries';
+import { backupFetch } from "../../../lib/inquiry-backup";
 
 async function sendDiscordNotification(inquiry: {
   name: string;
@@ -40,7 +41,7 @@ async function sendDiscordNotification(inquiry: {
   };
 
   try {
-    await fetch(webhookUrl, {
+    await backupFetch(webhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
